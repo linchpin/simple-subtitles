@@ -69,9 +69,9 @@ For more info on this, read into [the wp_kses functions](https://codex.wordpress
 
 == Frequently Asked Questions ==
 
-= Why is this empty? =
+= Does this work with the Classic Editor and the Block Editor? =
 
-No one has asked us any questions yet! Use the support link to tell us what is on your mind.
+Yes, this plugin will work for the Classic Editor or the Block Editor. In the Classic Editor, the subtitle field is below the title field. In the Block Editor, there is a Subtitle field in page settings panel.
 
 == Screenshots ==
 
