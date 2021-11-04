@@ -1,0 +1,24 @@
+#subtitlediv {
+	border-color: #dfdfdf;
+	-webkit-box-shadow: inset 0 1px 0 #fff;
+	box-shadow: inset 0 1px 0 #fff;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	position: relative;
+	padding: 0 0 12px 0;
+}
+
+#simple_subtitle {
+	padding: 3px 8px;
+	font-size: 1.3em;
+	line-height: 100%;
+	width: 100%;
+	outline: 0;
+}
+
+#subtitlediv #subtitle-prompt-text {
+	color: #bbb;
+	position: absolute;
+	font-size: 1.3em;
+	padding: 7px 10px;
+}

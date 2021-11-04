@@ -1,0 +1,15 @@
+{
+  "name": "simple-subtitles",
+  "version": "1.0.0",
+  "description": "Easily add a subtitle to your post, pages and custom post types",
+  "main": "app.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "19.0.0"
+  }
+}
