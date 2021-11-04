@@ -17,7 +17,7 @@ There are several functions in the plugin that allow you to easily get subtitles
 	    add_filter( 'simple_subtitle_auto', 'mytheme_disable_subtitle_display' );
 	?>
 
-### By default, only <span> tags are allowed in subtitles (with only class and style attributes). There is a filter this. ###
+### By default, only span tags are allowed in subtitles (with only class and style attributes). There is a filter this. ###
 
 	<?php
 	    function mytheme_simple_subtitle_allowed_html( $allowed ) {
