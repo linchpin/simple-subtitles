@@ -1,15 +1,39 @@
 {
-  "name": "simple-subtitles",
-  "version": "1.0.0",
+  "name": "@linchpin/simple-subtitles",
+  "version": "2.2.0",
   "description": "Easily add a subtitle to your post, pages and custom post types",
   "main": "app.js",
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "start": "wp-scripts start",
+    "release": "gulp build:release --production"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Linchpin <sayhi@linchpin.com>",
+  "license": "GPL-2.0-or-later",
   "devDependencies": {
+    "gulp": "4.0.2",
+    "gulp-bump": "3.2.0",
+    "gulp-cli": "2.3.0",
+    "gulp-if": "3.0.0",
+    "gulp-load-plugins": "2.0.7",
+    "gulp-replace": "1.1.3",
+    "yargs": "17.2.1",
     "@wordpress/scripts": "19.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linchpin/simple-subtitles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/linchpin/simple-subtitles/issues",
+    "email": "sayhi@linchpin.com"
+  },
+  "engines": {
+    "node": ">= 14.18.0"
+  },
+  "browserslist": [
+    "default",
+    "maintained node versions",
+    "not dead"
+  ]
 }

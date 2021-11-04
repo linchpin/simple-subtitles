@@ -2,6 +2,15 @@
 
 Easily add a subtitle to your post, pages and custom post types
 
+## Latest Release: 2.2.0 [11/04/2021]
+
+| Build Status                                                                                    | Coding Standards                                                                                         |
+|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| ![Build Status](https://github.com/linchpin/simple-subtitles/actions/workflows/release.yml/badge.svg) | ![Coding Standards Status](https://github.com/linchpin/simple-subtitles/actions/workflows/phpcs.yml/badge.svg) |
+|                                                                                                 | ![PHP Lint Status](https://github.com/linchpin/simple-subtitles/actions/workflows/phpcbf.yml/badge.svg)        |
+
+Please See the [changelog.md](CHANGELOG.md) for the latest information on the plugin
+
 ## Description ##
 
 Simple subtitles adds a field on posts, pages, or custom post types for adding a subtitle. Post types can be enabled/disabled in the writing settings section.
@@ -51,7 +60,6 @@ For more info on this, read into [the wp_kses functions](https://codex.wordpress
 	    );
 	    $subtitle = the_simple_subtitle_attribute( $args );
 	?><h3>Roadmap</h3>
-
 
 ## Installation ##
 

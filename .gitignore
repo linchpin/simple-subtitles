@@ -1,0 +1,34 @@
+node_modules
+release
+vendor
+.idea
+*.log
+
+# Project Files
+dist
+
+# Editors
+*.esproj
+*.tmproj
+*.tmproject
+tmtags
+.*.sw[a-z]
+*.un~
+Session.vim
+*.swp
+
+# Mac OSX
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+/wp-content/
+wiki/cache
+wiki
+output
+/application/demo/
+phpDocumentor.phar
