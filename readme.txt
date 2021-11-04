@@ -80,6 +80,9 @@ No one has asked us any questions yet! Use the support link to tell us what is o
 
 == Changelog ==
 
+= 3.0.0 =
+* Add support for the block editor
+
 = 2.1.1 =
 * Fix bug where the automatic display of simple subtitles could not be turned off via filter.
 
