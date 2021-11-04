@@ -4,9 +4,12 @@
  */
 class Simple_Subtitle_Upgrades {
 
+
 	function __construct() {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+
 	}
+
 
 	/**
 	 * Perform any upgrades needed.
@@ -23,7 +26,9 @@ class Simple_Subtitle_Upgrades {
 		if ( 0 > version_compare( $GLOBALS['simple_subtitles_database_version'], '2.1.1' ) ) {
 			$this->version_2_1_1();
 		}
+
 	}
+
 
 	/**
 	 * Upgrade to version 1.0 by ensuring the default post types are selected.
@@ -57,7 +62,9 @@ class Simple_Subtitle_Upgrades {
 
 		update_option( 'simple_subtitles_version', '1.0' );
 		$GLOBALS['simple_subtitles_database_version'] = '1.0';
+
 	}
+
 
 	/**
 	 * Upgrade meta keys to reflect the new namespacing.
@@ -65,15 +72,18 @@ class Simple_Subtitle_Upgrades {
 	function version_2_0() {
 		$args = array(
 			'posts_per_page' => 100,
-			'offset' => 0,
-			'post_type' => 'any',
-			'post_status' => apply_filters( 'simple_subtitle_2_0_upgrade_statuses', array(
-				'any',
-				'trash',
-			) ),
-			'meta_query' => array(
+			'offset'         => 0,
+			'post_type'      => 'any',
+			'post_status'    => apply_filters(
+				 'simple_subtitle_2_0_upgrade_statuses',
 				array(
-					'key' => '_lp_simple_subtitle',
+					'any',
+					'trash',
+				)
+				),
+			'meta_query'     => array(
+				array(
+					'key'     => '_lp_simple_subtitle',
 					'compare' => 'EXISTS',
 				),
 			),
@@ -96,7 +106,9 @@ class Simple_Subtitle_Upgrades {
 
 		update_option( 'simple_subtitles_version', '2.0' );
 		$GLOBALS['simple_subtitles_database_version'] = '2.0';
+
 	}
+
 
 	/**
 	 * Nothing to update here, just the version.
@@ -104,6 +116,9 @@ class Simple_Subtitle_Upgrades {
 	function version_2_1_1() {
 		update_option( 'simple_subtitles_version', '2.1.1' );
 		$GLOBALS['simple_subtitles_database_version'] = '2.1.1';
+
 	}
+
+
 }
 $simple_subtitle_upgrades = new Simple_Subtitle_Upgrades();
