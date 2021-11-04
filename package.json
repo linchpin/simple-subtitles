@@ -32,8 +32,6 @@
     "node": ">= 14.18.0"
   },
   "browserslist": [
-    "defaults",
-    "maintained node versions",
-    "not dead"
+    "defaults"
   ]
 }
