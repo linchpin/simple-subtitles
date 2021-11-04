@@ -16,14 +16,14 @@
     "gulp-cli": "2.3.0",
     "gulp-extname": "0.2.2",
     "gulp-if": "3.0.0",
-    "gulp-load-plugins": "2.0.6",
+    "gulp-load-plugins": "2.0.7",
     "gulp-readme-to-markdown": "0.2.1",
-    "gulp-replace": "1.0.0",
-    "js-yaml": "3.14.1",
+    "gulp-replace": "1.1.3",
+    "js-yaml": "4.1.0",
     "kind-of": "6.0.3",
     "rimraf": "3.0.2",
     "vinyl-named": "1.1.0",
-    "yargs": "16.2.0",
+    "yargs": "17.2.1",
     "@wordpress/scripts": "19.0.0"
   },
   "repository": {
@@ -35,12 +35,10 @@
     "email": "sayhi@linchpin.com"
   },
   "engines": {
-    "node": ">= 10.13.0"
+    "node": ">= 14.18.0"
   },
-  "private": true,
   "browserslist": [
-    "last 1 version",
-    "> 1%",
+    "default",
     "maintained node versions",
     "not dead"
   ]

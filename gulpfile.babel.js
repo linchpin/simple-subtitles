@@ -1,12 +1,11 @@
 'use strict';
 
+var gulp          = require('gulp');
 var plugins       = require('gulp-load-plugins');
 var yargs         = require('yargs');
-var gulp          = require('gulp');
 var rimraf        = require('rimraf');
 var yaml          = require('js-yaml');
 var fs            = require('fs');
-var named         = require('vinyl-named');
 var through2      = require('through2');
 
 // Load all Gulp plugins into one variable
@@ -43,10 +42,6 @@ function loadConfig() {
  */
 function setProductionMode(done) {
 	PRODUCTION = false;
-	webpackConfig.mode = 'production';
-	webpackConfig.devtool = false;
-
-	sassConfig.production = true;
 	done();
 }
 
@@ -62,18 +57,6 @@ gulp.task( 'default',
 // This happens every time a build starts
 function clean(done) {
 	rimraf('js', done);
-}
-
-// In production, the file is minified
-function javascript() {
-	return gulp.src(PATHS.entries)
-		.pipe(named())
-		.pipe($.sourcemaps.init())
-		.pipe($.if(PRODUCTION, $.uglify()
-			.on('error', e => { console.log(e); })
-		))
-		.pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-		.pipe(gulp.dest('js'));
 }
 
 // Build the "dist" folder by running all of the below tasks
