@@ -16,38 +16,54 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
 
+      - name: Build Plugin Frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Clean Build Files/Folders
+        run : |
+          chmod +x ./.deployment/cleanup.sh
+          sh ./.deployment/cleanup.sh;
+
+      - name: Create Sync Zip
+        run: |
+          zip -r simple-subtitles.zip ./simple-subtitles
+          zip -r simple-subtitles-${{ steps.get_version.outputs.VERSION }}.zip ./simple-subtitles
+
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            New Release
+            ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
 
-      - name: WordPress Plugin Deploy
-        uses: 10up/action-wordpress-plugin-deploy@1.5.0
-        env:
-          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: courier-notices
-
-      - name: Upload release assets
+      - name: Upload Release Asset
+        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{github.workspace}}/${{ github.event.repository.name }}.zip
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./${{ github.event.repository.name }}.zip
           asset_name: ${{ github.event.repository.name }}.zip
           asset_content_type: application/zip
 
-      - name: WordPress.org plugin asset/readme update
-        uses: 10up/action-wordpress-plugin-asset-update@stable
-        env:
-          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+#      - name: WordPress Plugin Deploy
+#        uses: 10up/action-wordpress-plugin-deploy@1.5.0
+#        env:
+#          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+#          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+#          SLUG: courier-notices
+#
+#      - name: WordPress.org plugin asset/readme update
+#        uses: 10up/action-wordpress-plugin-asset-update@stable
+#        env:
+#          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+#          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
