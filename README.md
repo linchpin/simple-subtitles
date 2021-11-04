@@ -17,7 +17,7 @@ There are several functions in the plugin that allow you to easily get subtitles
 	    add_filter( 'simple_subtitle_auto', 'mytheme_disable_subtitle_display' );
 	?>
 
-### By default, only span tags are allowed in subtitles (with only class and style attributes). There is a filter this. ###
+### By default, only span tags are allowed in subtitles (with only class and style attributes). There is a filter for this. ###
 
 	<?php
 	    function mytheme_simple_subtitle_allowed_html( $allowed ) {
@@ -39,7 +39,7 @@ For more info on this, read into [the wp_kses functions](https://codex.wordpress
 
 ### Display the current post's subtitle. Should be used within the loop. ###
 
-<?php $subtitle = the_simple_subtitle( $before = '', $after = '', $echo = true ); ?>
+	<?php $subtitle = the_simple_subtitle( $before = '', $after = '', $echo = true ); ?>
 
 ### Get the subtitle for use in an HTML attribute. ###
 
