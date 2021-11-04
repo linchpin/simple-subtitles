@@ -3,9 +3,6 @@
 var gulp          = require('gulp');
 var plugins       = require('gulp-load-plugins');
 var yargs         = require('yargs');
-var rimraf        = require('rimraf');
-var yaml          = require('js-yaml');
-var fs            = require('fs');
 var through2      = require('through2');
 
 // Load all Gulp plugins into one variable
@@ -14,9 +11,6 @@ const $ = plugins();
 // Check for --production flag
 let PRODUCTION = !!(yargs.argv.production);
 let VERSION_BUMP = yargs.argv.release;      // Check for --release (x.x.x semver version number)
-
-// Load settings from settings.yml
-const { PATHS, LOCAL_PATH } = loadConfig();
 
 // Define default webpack object
 let webpackConfig = {
@@ -28,14 +22,6 @@ let webpackConfig = {
 };
 
 /**
- * Load in additional config files
- */
-function loadConfig() {
-	let ymlFile = fs.readFileSync('config.yml', 'utf8' );
-	return yaml.load(ymlFile);
-}
-
-/**
  * Set production mode during the build process
  *
  * @param done
@@ -45,27 +31,12 @@ function setProductionMode(done) {
 	done();
 }
 
-// Build the "dist" folder by running all the below tasks
-// Sass must be run later so UnCSS can search for used classes in the others assets.
-gulp.task( 'build:production',
-	gulp.series(setProductionMode, clean, javascript));
-
-// Build the site and watch for file changes
-gulp.task( 'default',
-	gulp.series(clean, javascript, gulp.parallel(watch)));
-
-// This happens every time a build starts
-function clean(done) {
-	rimraf('js', done);
-}
-
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task(
 	'build:release',
 	gulp.series(
 		setProductionMode,
-		clean,
 		bumpPluginFile,
 		bumpPackageJson,
 		bumpReadmeStableTag,
@@ -88,7 +59,7 @@ gulp.task(
  */
 function bumpPluginFile(done) {
 
-	let constant = 'SIMPLE_SUBTITLES_PLUGIN_VERSION';
+	let constant = 'SIMPLE_SUBTITLES_VERSION';
 	let define_bump_obj = {
 		key: constant,
 		regex: new RegExp('([<|\'|"]?(' + constant + ')[>|\'|"]?[ ]*[:=,]?[ ]*[\'|"]?[a-z]?)(\\d+.\\d+.\\d+)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z\\.-]+)?([\'|"|<]?)', 'ig')

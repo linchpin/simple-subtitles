@@ -3,14 +3,16 @@
 Plugin Name: Simple Subtitles
 Plugin URI: http://wordpress.org/extend/plugins/simple-subtitles
 Description: Easily add a subtitle to your post, pages and custom post types
-Version: 3.0.0
+Version: 2.2.0
 Text Domain: simple-subtitle
 Domain Path: /languages
 Author: Linchpin
 Author URI: http://linchpin.agency/?utm_source=simple-subtitles&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
 License: GPLv2
 */
-define( 'SIMPLE_SUBTITLES_VERSION', '2.1.1' );
+
+define( 'SIMPLE_SUBTITLES_VERSION', '2.2.0' );
+
 $GLOBALS['simple_subtitles_database_version'] = get_option( 'simple_subtitles_version', '0.0' );
 
 include( 'upgrades.php' );
