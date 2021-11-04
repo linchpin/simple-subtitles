@@ -1,15 +1,17 @@
 <?php
-/*
-Plugin Name: Simple Subtitles
-Plugin URI: http://wordpress.org/extend/plugins/simple-subtitles
-Description: Easily add a subtitle to your post, pages and custom post types
-Version: 2.2.0
-Text Domain: simple-subtitle
-Domain Path: /languages
-Author: Linchpin
-Author URI: http://linchpin.agency/?utm_source=simple-subtitles&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
-License: GPLv2
-*/
+/**
+ * Plugin Name: Simple Subtitles
+ * Plugin URI: http://wordpress.org/plugins/simple-subtitles
+ * Description: Easily add a subtitle to your post, pages and custom post types
+ * Version: 2.2.0
+ * Text Domain: simple-subtitle
+ * Domain Path: /languages
+ * Author: Linchpin
+ * Author URI: http://linchpin.com/?utm_source=simple-subtitles&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
+ * Tested up to: 5.8.1
+ * Requires PHP: 7.1
+ * License: GPLv2
+ */
 
 define( 'SIMPLE_SUBTITLES_VERSION', '2.2.0' );
 
