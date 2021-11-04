@@ -3,6 +3,8 @@
 /.github
 /node_modules
 /assets
+/.deployment
+/simple-subtitles
 
 gulpfile.babel.js
 yarn.lock
@@ -13,3 +15,11 @@ renovate.json
 .gitignore
 .editorconfig
 .gitattributes
+.php-cs-fixer.dist.php
+.phplint.yml
+.vipgoci_phpcs_skip_folders
+package-lock.json
+phpcs.xml
+phpdoc.dist.xml
+phpunit.xml
+composer.lock
